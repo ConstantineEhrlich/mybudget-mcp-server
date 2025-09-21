@@ -1,0 +1,940 @@
+openapi: 3.0.1
+info:
+  title: BudgetWebApi
+  version: '1.0'
+paths:
+  /budgets:
+    get:
+      tags:
+        - BudgetFile
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BudgetFile'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BudgetFile'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BudgetFile'
+  /budgets/my:
+    get:
+      tags:
+        - BudgetFile
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BudgetFile'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BudgetFile'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BudgetFile'
+  /budgets/new:
+    post:
+      tags:
+        - BudgetFile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BudgetFileAdd'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BudgetFileAdd'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BudgetFileAdd'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+  '/budgets/{budgetId}':
+    get:
+      tags:
+        - BudgetFile
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+    delete:
+      tags:
+        - BudgetFile
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - BudgetFile
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BudgetFileUpdate'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BudgetFileUpdate'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BudgetFileUpdate'
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/addOwner':
+    post:
+      tags:
+        - BudgetFile
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BudgetOwnerAdd'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BudgetOwnerAdd'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BudgetOwnerAdd'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+  '/budgets/{budgetId}/removeOwner':
+    post:
+      tags:
+        - BudgetFile
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BudgetOwnerAdd'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BudgetOwnerAdd'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BudgetOwnerAdd'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BudgetFile'
+  '/budgets/{budgetId}/categories/add':
+    post:
+      tags:
+        - Category
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryAdd'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CategoryAdd'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CategoryAdd'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  '/budgets/{budgetId}/categories':
+    get:
+      tags:
+        - Category
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  '/budgets/{budgetId}/categories/{catId}':
+    get:
+      tags:
+        - Category
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: catId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    put:
+      tags:
+        - Category
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: catId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryUpdate'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CategoryUpdate'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CategoryUpdate'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Category'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    delete:
+      tags:
+        - Category
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: catId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/categories/{catId}/changeStatus':
+    get:
+      tags:
+        - Category
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: catId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/import':
+    post:
+      tags:
+        - ImpExp
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportConfiguration'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ImportConfiguration'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ImportConfiguration'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImportResult'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImportResult'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImportResult'
+  '/budgets/{budgetId}/export':
+    get:
+      tags:
+        - ImpExp
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ExportResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ExportResult'
+  '/budgets/{budgetId}/SummaryByCategory':
+    get:
+      tags:
+        - Reports
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: query
+          schema:
+            maximum: 2999
+            minimum: 1900
+            type: integer
+            format: int32
+        - name: period
+          in: query
+          schema:
+            maximum: 12
+            minimum: 1
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/SummaryByOwner':
+    get:
+      tags:
+        - Reports
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: query
+          schema:
+            maximum: 2999
+            minimum: 1900
+            type: integer
+            format: int32
+        - name: period
+          in: query
+          schema:
+            maximum: 12
+            minimum: 1
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/GetClosingBalance':
+    get:
+      tags:
+        - Reports
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: query
+          required: true
+          schema:
+            maximum: 2999
+            minimum: 1900
+            type: integer
+            format: int32
+        - name: period
+          in: query
+          required: true
+          schema:
+            maximum: 12
+            minimum: 1
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/GetOpeningBalance':
+    get:
+      tags:
+        - Reports
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: year
+          in: query
+          required: true
+          schema:
+            maximum: 2999
+            minimum: 1900
+            type: integer
+            format: int32
+        - name: period
+          in: query
+          required: true
+          schema:
+            maximum: 12
+            minimum: 1
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/updates':
+    get:
+      tags:
+        - Transaction
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  '/budgets/{budgetId}/transactions/add':
+    post:
+      tags:
+        - Transaction
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionAdd'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TransactionAdd'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TransactionAdd'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  '/budgets/{budgetId}/transactions':
+    get:
+      tags:
+        - Transaction
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+  '/budgets/{budgetId}/transactions/{transId}':
+    get:
+      tags:
+        - Transaction
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: transId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+    put:
+      tags:
+        - Transaction
+      parameters:
+        - name: budgetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: transId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionUpdate'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TransactionUpdate'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TransactionUpdate'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+components:
+  schemas:
+    BudgetFile:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        isDeleted:
+          type: boolean
+        isPrivate:
+          type: boolean
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          nullable: true
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+          nullable: true
+      additionalProperties: false
+    BudgetFileAdd:
+      required:
+        - description
+      type: object
+      properties:
+        description:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    BudgetFileUpdate:
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        isPrivate:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    BudgetOwnerAdd:
+      required:
+        - userId
+      type: object
+      properties:
+        userId:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    Category:
+      type: object
+      properties:
+        budgetFileId:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        defaultType:
+          $ref: '#/components/schemas/TransactionType'
+        description:
+          type: string
+          nullable: true
+        isActive:
+          type: boolean
+      additionalProperties: false
+    CategoryAdd:
+      required:
+        - categoryId
+        - defaultType
+        - description
+      type: object
+      properties:
+        categoryId:
+          minLength: 1
+          type: string
+        description:
+          minLength: 1
+          type: string
+        defaultType:
+          $ref: '#/components/schemas/TransactionType'
+      additionalProperties: false
+    CategoryUpdate:
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+        defaultType:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ExportResult:
+      type: object
+      properties:
+        fileName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ImportConfiguration:
+      type: object
+      properties:
+        pathToFile:
+          type: string
+          nullable: true
+        worksheetName:
+          type: string
+          nullable: true
+        budgetId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ImportResult:
+      type: object
+      properties:
+        row:
+          type: string
+          nullable: true
+        result:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        budgetFileId:
+          type: string
+          nullable: true
+        transactionType:
+          $ref: '#/components/schemas/TransactionType'
+        transactionDate:
+          type: string
+          format: date-time
+        recordedAt:
+          type: string
+          format: date-time
+        ownerId:
+          type: string
+          nullable: true
+        authorId:
+          type: string
+          nullable: true
+        year:
+          type: integer
+          format: int32
+        period:
+          type: integer
+          format: int32
+        description:
+          type: string
+          nullable: true
+        categoryId:
+          type: string
+          nullable: true
+        amount:
+          type: number
+          format: double
+      additionalProperties: false
+    TransactionAdd:
+      required:
+        - amount
+        - categoryId
+      type: object
+      properties:
+        categoryId:
+          minLength: 1
+          type: string
+        amount:
+          type: number
+          format: double
+        description:
+          type: string
+          nullable: true
+        transactionType:
+          type: integer
+          format: int32
+          nullable: true
+        ownerId:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        year:
+          type: integer
+          format: int32
+          nullable: true
+        period:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    TransactionType:
+      enum:
+        - 5
+        - 10
+        - 15
+        - 20
+      type: integer
+      format: int32
+    TransactionUpdate:
+      type: object
+      properties:
+        categoryId:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        transactionType:
+          type: integer
+          format: int32
+          nullable: true
+        ownerId:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        year:
+          type: integer
+          format: int32
+          nullable: true
+        period:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+      additionalProperties: false

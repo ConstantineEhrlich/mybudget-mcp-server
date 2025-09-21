@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBudgetClient.Models", "MyBudgetClient.Models\MyBudgetClient.Models.csproj", "{77D9A0ED-72CB-45EA-97BC-FD87F3B46984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBudgetClient.BudgetRestClient", "MyBudgetClient.BudgetRestClient\MyBudgetClient.BudgetRestClient.csproj", "{956B9381-6DD9-416B-8912-E83AE4D6E25A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBudgetClient.Mcp", "MyBudgetClient.Mcp\MyBudgetClient.Mcp.csproj", "{EAE99DD9-A353-4ECD-8029-066D854F60FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77D9A0ED-72CB-45EA-97BC-FD87F3B46984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D9A0ED-72CB-45EA-97BC-FD87F3B46984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D9A0ED-72CB-45EA-97BC-FD87F3B46984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D9A0ED-72CB-45EA-97BC-FD87F3B46984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956B9381-6DD9-416B-8912-E83AE4D6E25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956B9381-6DD9-416B-8912-E83AE4D6E25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956B9381-6DD9-416B-8912-E83AE4D6E25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956B9381-6DD9-416B-8912-E83AE4D6E25A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE99DD9-A353-4ECD-8029-066D854F60FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE99DD9-A353-4ECD-8029-066D854F60FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE99DD9-A353-4ECD-8029-066D854F60FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE99DD9-A353-4ECD-8029-066D854F60FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
